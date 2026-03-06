@@ -1,20 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import logoImg from "@/assets/logo-dpu.jpg";
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
-  { label: "Capabilities", href: "/#capabilities" },
   { label: "About", href: "/#about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Director", href: "/director" },
+  { label: "Connect", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
@@ -29,32 +39,54 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
-      <div className="container flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="font-heading text-xl md:text-2xl font-bold text-primary tracking-tight">
-          DPU<span className="text-dpu-blue-light">.</span>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/95 backdrop-blur-xl border-b border-border shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container flex items-center justify-between h-20">
+        <Link to="/" className="flex items-center relative z-10">
+          <img src={logoImg} alt="DPU" className="h-10 md:h-12 w-auto" />
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Button asChild className="bg-primary hover:bg-dpu-blue-light text-primary-foreground font-medium px-6">
-            <Link to="/contact">Book a Consultation</Link>
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const isActive =
+              location.pathname === link.href ||
+              (link.href.startsWith("/#") && location.pathname === "/");
+
+            return (
+              <Link
+                key={link.label}
+                to={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  isActive
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+          <Button
+            asChild
+            className="ml-4 bg-primary hover:bg-dpu-blue-light text-primary-foreground font-medium px-6 h-10 shadow-glow hover:shadow-dpu transition-all duration-300"
+          >
+            <Link to="/contact">Book a Call</Link>
           </Button>
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+        <button
+          className="md:hidden w-10 h-10 rounded-lg bg-muted/50 border border-border flex items-center justify-center text-foreground"
+          onClick={() => setMobileOpen(!mobileOpen)}
+        >
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
@@ -67,19 +99,24 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-background border-b border-border overflow-hidden"
           >
-            <div className="container py-4 flex flex-col gap-3">
+            <div className="container py-6 flex flex-col gap-2">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   to={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-sm font-medium text-muted-foreground hover:text-primary py-2"
+                  className="text-sm font-medium text-muted-foreground hover:text-foreground px-4 py-3 rounded-lg hover:bg-muted/50 transition-colors"
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button asChild className="bg-primary text-primary-foreground w-full mt-2">
-                <Link to="/contact">Book a Consultation</Link>
+              <Button
+                asChild
+                className="bg-primary text-primary-foreground w-full mt-4 h-12 shadow-glow"
+              >
+                <Link to="/contact" onClick={() => setMobileOpen(false)}>
+                  Book a Call
+                </Link>
               </Button>
             </div>
           </motion.div>

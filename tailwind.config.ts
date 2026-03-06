@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Space Grotesk', 'sans-serif'],
-        body: ['DM Sans', 'sans-serif'],
+        heading: ['Clash Display', 'sans-serif'],
+        body: ['Satoshi', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",

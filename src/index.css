@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,57 +6,59 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 30% 12%;
+    --background: 220 20% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 30% 12%;
+    --card: 220 20% 7%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 30% 12%;
+    --popover: 220 20% 7%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 224 76% 32%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 220 20% 4%;
 
-    --secondary: 220 20% 96%;
-    --secondary-foreground: 220 30% 12%;
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 60%;
 
-    --accent: 224 76% 48%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 190 95% 50%;
+    --accent-foreground: 220 20% 4%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 224 76% 48%;
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
-    /* DPU Custom tokens */
-    --dpu-navy: 224 76% 18%;
-    --dpu-blue: 224 76% 32%;
-    --dpu-blue-light: 224 76% 48%;
-    --dpu-blue-bright: 210 100% 56%;
-    --dpu-cyan: 190 90% 50%;
-    --dpu-grey-light: 220 20% 97%;
-    --dpu-grey: 220 10% 46%;
-    --dpu-success: 152 60% 42%;
+    /* DPU Custom tokens - Premium Dark Theme */
+    --dpu-navy: 220 30% 6%;
+    --dpu-blue: 217 91% 60%;
+    --dpu-blue-light: 210 100% 68%;
+    --dpu-blue-bright: 200 100% 62%;
+    --dpu-cyan: 185 100% 50%;
+    --dpu-electric: 217 100% 70%;
+    --dpu-grey-light: 220 15% 12%;
+    --dpu-grey: 220 10% 50%;
+    --dpu-success: 160 84% 50%;
+    --dpu-glow: 217 91% 60%;
 
-    --font-heading: 'Space Grotesk', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-heading: 'Clash Display', sans-serif;
+    --font-body: 'Satoshi', sans-serif;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 220 20% 4%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -66,27 +68,50 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: hsl(var(--dpu-blue) / 0.4);
+    color: white;
   }
 }
 
 @layer utilities {
   .text-gradient-blue {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--dpu-blue)) 0%, hsl(var(--dpu-blue-bright)) 100%);
+    background-image: linear-gradient(135deg, hsl(var(--dpu-blue)) 0%, hsl(var(--dpu-cyan)) 100%);
+  }
+
+  .text-gradient-glow {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(90deg, hsl(var(--dpu-blue-light)) 0%, hsl(var(--dpu-cyan)) 50%, hsl(var(--dpu-blue-light)) 100%);
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% center; }
+    50% { background-position: 100% center; }
   }
 
   .bg-gradient-hero {
-    background: linear-gradient(135deg, hsl(var(--dpu-navy)) 0%, hsl(var(--dpu-blue)) 50%, hsl(var(--dpu-blue-light)) 100%);
+    background: radial-gradient(ellipse 80% 50% at 50% -20%, hsl(var(--dpu-blue) / 0.3) 0%, transparent 50%),
+                linear-gradient(180deg, hsl(var(--dpu-navy)) 0%, hsl(var(--background)) 100%);
   }
 
   .bg-gradient-cta {
-    background: linear-gradient(135deg, hsl(var(--dpu-blue)) 0%, hsl(var(--dpu-navy)) 100%);
+    background: linear-gradient(135deg, hsl(var(--dpu-blue) / 0.15) 0%, hsl(var(--background)) 100%);
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, hsl(var(--dpu-blue) / 0.08) 0%, transparent 70%);
   }
 
   .bg-dpu-light {
@@ -94,14 +119,103 @@
   }
 
   .shadow-dpu {
-    box-shadow: 0 4px 24px -4px hsl(var(--dpu-blue) / 0.12);
+    box-shadow: 0 4px 24px -4px hsl(var(--dpu-blue) / 0.2),
+                0 0 0 1px hsl(var(--border));
   }
 
   .shadow-dpu-lg {
-    box-shadow: 0 12px 40px -8px hsl(var(--dpu-blue) / 0.18);
+    box-shadow: 0 12px 40px -8px hsl(var(--dpu-blue) / 0.3),
+                0 0 0 1px hsl(var(--dpu-blue) / 0.2);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 40px hsl(var(--dpu-blue) / 0.4),
+                0 0 80px hsl(var(--dpu-blue) / 0.2);
+  }
+
+  .border-glow {
+    border: 1px solid hsl(var(--dpu-blue) / 0.3);
+    box-shadow: inset 0 0 20px hsl(var(--dpu-blue) / 0.05);
+  }
+
+  /* Globe animation styles */
+  .globe-container {
+    perspective: 1000px;
+  }
+
+  .globe-glow {
+    filter: drop-shadow(0 0 60px hsl(var(--dpu-blue) / 0.5))
+            drop-shadow(0 0 120px hsl(var(--dpu-cyan) / 0.3));
+  }
+
+  /* Grid pattern */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  /* Stat counter animation */
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-count {
+    animation: count-up 0.6s ease-out forwards;
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse ring */
+  @keyframes pulse-ring {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+
+  .pulse-ring {
+    animation: pulse-ring 2s ease-out infinite;
   }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--dpu-blue) / 0.5);
 }
