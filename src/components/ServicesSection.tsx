@@ -15,7 +15,7 @@ import {
 const services = [
   {
     icon: Megaphone,
-    title: "Digital PR & Communications",
+    title: "Brand Marketing and Consulting",
     description:
       "Build lasting reputation through strategic media relations, thought leadership, and crisis management. We connect your brand with audiences that matter.",
     tags: ["Media Relations", "Crisis Management", "Thought Leadership"],
@@ -51,7 +51,7 @@ const services = [
   },
   {
     icon: Palette,
-    title: "Digital Design & UX",
+    title: "Website Design, Development and UX",
     description:
       "Create intuitive, beautiful digital experiences. Our designers blend aesthetics with functionality to engage users and drive conversions.",
     tags: ["UI/UX Design", "Web Development", "App Design"],
