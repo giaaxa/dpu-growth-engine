@@ -109,6 +109,13 @@ const PricingSection = () => {
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Choose the package that fits your stage. All packages include strategic guidance, creative direction, and measurable deliverables.
           </p>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Need an individual service outside these packages?{" "}
+            <Link to="/contact" className="text-primary font-semibold hover:text-dpu-cyan transition-colors">
+              Contact us
+            </Link>{" "}
+            — we'll tailor something for you.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
