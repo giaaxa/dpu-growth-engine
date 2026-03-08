@@ -83,7 +83,7 @@ const Contact = () => {
       }
     } catch {
       // Fallback: Open email client with pre-filled message
-      const mailtoLink = `mailto:info@dpunwired.com?subject=${encodeURIComponent(
+      const mailtoLink = `mailto:info@digitalprofessionalsunwired.com?subject=${encodeURIComponent(
         `Contact Form: ${form.name}`
       )}&body=${encodeURIComponent(
         `Name: ${form.name}\nEmail: ${form.email}\nCompany: ${form.company || "Not provided"}\n\nMessage:\n${form.message}`
@@ -164,10 +164,10 @@ const Contact = () => {
                     <div>
                       <p className="font-medium text-foreground">Email</p>
                       <a
-                        href="mailto:info@dpunwired.com"
+                        href="mailto:info@digitalprofessionalsunwired.com"
                         className="text-muted-foreground hover:text-primary transition-colors"
                       >
-                        info@dpunwired.com
+                        info@digitalprofessionalsunwired.com
                       </a>
                     </div>
                   </div>
