@@ -193,7 +193,7 @@ const CredibilitySection = () => {
             {brands.map((brand) => (
               <div
                 key={brand.name}
-                className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                className="flex flex-col items-center gap-2 hover:opacity-100 transition-all duration-300"
               >
                 <div className="h-10 flex items-center justify-center">
                   <img
