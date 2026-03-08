@@ -189,17 +189,22 @@ const CredibilitySection = () => {
           <p className="text-sm text-muted-foreground mb-6">
             Trusted by leading brands across industries
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8">
             {brands.map((brand) => (
               <div
                 key={brand.name}
-                className="h-12 flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+                className="flex flex-col items-center gap-2 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
               >
-                <img
-                  src={brand.logo}
-                  alt={brand.name}
-                  className="h-full w-auto max-w-[120px] object-contain"
-                />
+                <div className="h-10 flex items-center justify-center">
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="h-full w-auto max-w-[100px] object-contain"
+                  />
+                </div>
+                <span className="font-heading text-xs font-semibold text-muted-foreground">
+                  {brand.name}
+                </span>
               </div>
             ))}
           </div>
