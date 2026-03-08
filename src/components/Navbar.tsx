@@ -8,6 +8,7 @@ import logoImg from "@/assets/logo-dpu.jpg";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
+  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/#about" },
   { label: "Director", href: "/director" },
   { label: "Connect", href: "/contact" },

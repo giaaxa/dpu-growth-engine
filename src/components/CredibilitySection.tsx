@@ -2,6 +2,25 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { TrendingUp, Users, Globe, Award } from "lucide-react";
 
+// Brand logos
+import dbsLogo from "@/assets/brands/dbs.png";
+import ktmLogo from "@/assets/brands/ktm.jpeg";
+import husqvarnaLogo from "@/assets/brands/husqvarna.png";
+import prilLogo from "@/assets/brands/pril.webp";
+import iciciLogo from "@/assets/brands/icici.jpeg";
+import bajajLogo from "@/assets/brands/bajaj.jpeg";
+import autodeskLogo from "@/assets/brands/autodesk.png";
+
+const brands = [
+  { name: "DBS Bank", logo: dbsLogo },
+  { name: "KTM", logo: ktmLogo },
+  { name: "Husqvarna", logo: husqvarnaLogo },
+  { name: "Pril", logo: prilLogo },
+  { name: "ICICI Lombard", logo: iciciLogo },
+  { name: "Bajaj Auto", logo: bajajLogo },
+  { name: "Autodesk", logo: autodeskLogo },
+];
+
 const stats = [
   {
     icon: TrendingUp,
@@ -170,14 +189,18 @@ const CredibilitySection = () => {
           <p className="text-sm text-muted-foreground mb-6">
             Trusted by leading brands across industries
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-            {["DBS Bank", "KTM", "Husqvarna", "Pril", "ICICI Lombard", "Bajaj Auto", "Jyothy Labs", "Autodesk", "Straive"].map((brand) => (
-              <span
-                key={brand}
-                className="font-heading text-xl font-extrabold text-foreground/80 hover:text-primary transition-colors"
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+            {brands.map((brand) => (
+              <div
+                key={brand.name}
+                className="h-12 flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
               >
-                {brand}
-              </span>
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="h-full w-auto max-w-[120px] object-contain"
+                />
+              </div>
             ))}
           </div>
         </motion.div>
