@@ -37,10 +37,10 @@ const Footer = () => {
             </h4>
             <ul className="space-y-3 text-sm">
               {[
-                "Digital PR & Communications",
+                "Brand Marketing and Consulting",
                 "AI-Powered Marketing",
                 "Performance Marketing",
-                "Brand Strategy",
+                "Website Design, Development and UX",
                 "Content Production",
                 "Social Media Management",
               ].map((service) => (
