@@ -111,10 +111,10 @@ const Footer = () => {
                 <div>
                   <p className="text-foreground font-medium">Email Us</p>
                   <a
-                    href="mailto:info@dpunwired.com"
+                    href="mailto:info@digitalprofessionalsunwired.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    info@dpunwired.com
+                    info@digitalprofessionalsunwired.com
                   </a>
                 </div>
               </li>
