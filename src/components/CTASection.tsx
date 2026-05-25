@@ -2,7 +2,6 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Calendar, Globe2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const CTASection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -60,10 +59,10 @@ const CTASection = () => {
               size="lg"
               className="bg-primary hover:bg-dpu-blue-light text-primary-foreground font-semibold px-10 h-14 text-base shadow-glow hover:shadow-dpu-lg transition-all duration-300"
             >
-              <Link to="/contact">
+              <a href="https://calendly.com/gia-pereira31/15-min-discovery-call" target="_blank" rel="noopener noreferrer">
                 Book a Strategy Call
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              </a>
             </Button>
             <Button
               asChild

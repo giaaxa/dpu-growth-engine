@@ -78,7 +78,7 @@ const Navbar = () => {
             asChild
             className="ml-4 bg-primary hover:bg-dpu-blue-light text-primary-foreground font-medium px-6 h-10 shadow-glow hover:shadow-dpu transition-all duration-300"
           >
-            <Link to="/contact">Book a Call</Link>
+            <a href="https://calendly.com/gia-pereira31/15-min-discovery-call" target="_blank" rel="noopener noreferrer">Book a Call</a>
           </Button>
         </div>
 
@@ -115,9 +115,9 @@ const Navbar = () => {
                 asChild
                 className="bg-primary text-primary-foreground w-full mt-4 h-12 shadow-glow"
               >
-                <Link to="/contact" onClick={() => setMobileOpen(false)}>
+                <a href="https://calendly.com/gia-pereira31/15-min-discovery-call" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)}>
                   Book a Call
-                </Link>
+                </a>
               </Button>
             </div>
           </motion.div>
