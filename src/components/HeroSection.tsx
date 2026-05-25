@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ChevronDown, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 // Animated globe component
 const Globe = () => {
@@ -282,14 +283,12 @@ const HeroSection = () => {
               className="flex flex-wrap gap-4 mb-12"
             >
               <Button
-                asChild
                 size="lg"
                 className="bg-primary hover:bg-dpu-blue-light text-primary-foreground font-semibold px-8 h-14 text-base shadow-glow hover:shadow-dpu-lg transition-all duration-300"
+                onClick={() => window.open('https://calendly.com/gia-pereira31/15-min-discovery-call', '_blank')}
               >
-                <a href="https://calendly.com/gia-pereira31/15-min-discovery-call" target="_blank" rel="noopener noreferrer">
-                  Book a Strategy Call
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
+                Book a Strategy Call
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 variant="outline"
