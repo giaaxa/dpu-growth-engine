@@ -259,21 +259,26 @@ const HeroSection = () => {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="font-heading text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-[1.1] mb-6"
             >
-              Transform Your{" "}
-              <span className="text-gradient-glow">Digital Presence</span>{" "}
-              Into Market Leadership
+              Strategy that moves.{" "}
+              <span className="text-gradient-glow">Execution</span> that delivers.
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-xl"
+              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-4 max-w-xl"
             >
-              We're not just another agency. We're your strategic partners in{" "}
-              <strong className="text-foreground">AI-powered marketing</strong>,{" "}
-              <strong className="text-foreground">Digital PR</strong>, and{" "}
-              <strong className="text-foreground">brand consulting</strong> — driving measurable growth across global markets.
+              DPU brings together senior strategy, creative talent and specialist execution to help brands build relevance, demand and measurable growth across markets.
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="text-base text-dpu-cyan font-medium mb-10 max-w-xl"
+            >
+              From global automotive brands to ambitious growth businesses.
             </motion.p>
 
             <motion.div

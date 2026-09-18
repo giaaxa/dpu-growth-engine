@@ -7,7 +7,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import Contact from "./pages/Contact";
 import Director from "./pages/Director";
-import Pricing from "./pages/Pricing";
+import Automotive from "./pages/Automotive";
+import Growth from "./pages/Growth";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,7 +24,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/director" element={<Director />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/automotive" element={<Automotive />} />
+          <Route path="/growth" element={<Growth />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

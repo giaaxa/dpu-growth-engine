@@ -179,6 +179,29 @@ const CredibilitySection = () => {
           ))}
         </div>
 
+        {/* Showreel Video */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          className="mt-16"
+        >
+          <div className="relative max-w-4xl mx-auto">
+            <div className="relative rounded-2xl overflow-hidden border border-border bg-card shadow-lg">
+              <video
+                controls
+                className="w-full aspect-video"
+                poster=""
+              >
+                <source src="/videos/dpu-showreel-2026.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            {/* Decorative glow */}
+            <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-dpu-cyan/10 to-primary/20 rounded-3xl blur-2xl -z-10 opacity-50" />
+          </div>
+        </motion.div>
+
         {/* Trust badges */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

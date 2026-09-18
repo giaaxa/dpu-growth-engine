@@ -7,9 +7,10 @@ import logoImg from "@/assets/logo-dpu.jpg";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/#services" },
-  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/#about" },
+  { label: "Automotive", href: "/automotive" },
+  { label: "Services", href: "/#services" },
+  { label: "Growth", href: "/growth" },
   { label: "Director", href: "/director" },
   { label: "Connect", href: "/contact" },
 ];
@@ -29,7 +30,11 @@ const Navbar = () => {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    if (href.startsWith("/#")) {
+    if (href === "/") {
+      if (location.pathname === "/") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } else if (href.startsWith("/#")) {
       const id = href.replace("/#", "");
       if (location.pathname === "/") {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });

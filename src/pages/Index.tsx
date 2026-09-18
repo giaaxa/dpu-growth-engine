@@ -4,6 +4,7 @@ import CredibilitySection from "@/components/CredibilitySection";
 import ServicesSection from "@/components/ServicesSection";
 import ApproachSection from "@/components/ApproachSection";
 import SocialMetrics from "@/components/SocialMetrics";
+import WaysToWork from "@/components/WaysToWork";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ const Index = () => {
       <ApproachSection />
       <ServicesSection />
       <SocialMetrics />
+      <WaysToWork />
       <CTASection />
       <Footer />
     </div>
